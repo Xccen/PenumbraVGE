@@ -50,8 +50,6 @@ public class PathResolver : IDisposable, IService
 
         return resourceType switch
         {
-            // Do not allow manipulating layers to prevent very obvious cheating and softlocks.
-            ResourceType.Lvb or ResourceType.Lgb or ResourceType.Sgb => (null, ResolveData.Invalid),
             // Prevent .atch loading to prevent crashes on outdated .atch files.
             ResourceType.Atch => ResolveAtch(path),
             // These are manipulated through Meta Edits instead.
